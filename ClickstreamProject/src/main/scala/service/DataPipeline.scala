@@ -25,7 +25,7 @@ object DataPipeline {
     val (df1duplicates,df2duplicates)=RemoveDuplicates.removeDuplicates(df1removenull,df2removenull)
     val (df1lowercase,df2lowercase)=ConvertToLowercase.convertToLowercase(df1duplicates,df2duplicates)
     val (df1rename,df2rename)=RenameColumn.renameColumn(df1lowercase,df2lowercase)
-
+ // this is the combined dataset
     val joinedDF = FileWriter.fileWriter(df1rename,df2rename,outputPath)
    DatabaseWrite.writeToMySQL(joinedDF, "cdp")
    // joinedDF.show()
