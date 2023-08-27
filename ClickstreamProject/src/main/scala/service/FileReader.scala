@@ -9,13 +9,6 @@ import org.apache.spark.sql.functions._
 
 object FileReader {
 
-  //Method to convert the output file to DF
-//  def readJoinedDataSet():DataFrame= {
-//    val spark = sparksession.sparkSession()
-//    val OutPutPath = ConfigFactory.load("application.conf").getString("output.path")
-//    val JoinedDF = spark.read.option("header", "true").option("inferSchema", "true").csv(OutPutPath)
-//    JoinedDF
-//  }
 
   //to read application config file
   def readConfig(): SparkConf = {
@@ -32,10 +25,10 @@ object FileReader {
       dataframe
     } catch {
       case e: Exception =>
-//
-        DataPipeline.logger.error("error occurred while reading datasets")
-        // You can handle the error here, such as returning an empty DataFrame or rethrowing the exception
-         //Returning an empty DataFrame as an example
+        //
+        DataPipeline.logger.error("error occurred while reading datasets",e)
+         null
+
     }
   }
 }

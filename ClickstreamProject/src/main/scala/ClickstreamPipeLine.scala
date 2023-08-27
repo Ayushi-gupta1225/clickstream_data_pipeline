@@ -16,3 +16,5 @@ object ClickstreamPipeLine {
 
   }
 }
+
+//application.conf , database.write

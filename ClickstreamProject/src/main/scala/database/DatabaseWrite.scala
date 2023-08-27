@@ -11,10 +11,10 @@ object DatabaseWrite {
    try {
      dataFrame.write
        .format("jdbc")
-       .mode("overwrite")
-       .option("driver", "com.mysql.cj.jdbc.Driver")
+       .mode("overwrite") //for overwriting existing table
+       .option("driver", "com.mysql.cj.jdbc.Driver") //specifying type of driver
        .option("url", constant.jdbcUrl)
-       .option("dbtable", tableName)
+       .option("dbtable", tableName) // give table name to insert data
        .option("user", constant.jdbcUser)
        .option("password", constant.jdbcPassword)
        .save()
